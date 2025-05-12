@@ -2,28 +2,44 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
-dotenv.config(); // Charger les variables d'environnement depuis .env
+dotenv.config();
 
 const router = express.Router();
 
-// Fake user data (remplacer par une vraie vérification en production)
 const fakeUser = {
-    email: process.env.USER_EMAIL,
-    password: process.env.USER_PASSWORD,
-  };
+  email: process.env.USER_EMAIL,
+  password: process.env.USER_PASSWORD,
+};
 
-// Login route
+// POST : http://localhost:4000/login
+// {
+//   "email": "mail@gmail.com",
+//   "password": "password"
+// }
 router.post("/", (req, res) => {
-  const { email, password } = req.body;
+  try {
+    const { email, password } = req.body;
 
-  if (email === fakeUser.email && password === fakeUser.password) {
-    const token = jwt.sign({ email }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
-    return res.status(200).json({ token, message: "Login Succeed"  });
+    if (!email || !password) {
+      return res
+        .status(400)
+        .json({ message: "❌ Email and password are required" });
+    }
+
+    if (email === fakeUser.email && password === fakeUser.password) {
+      const token = jwt.sign({ email }, process.env.JWT_SECRET, {
+        expiresIn: "1h",
+      });
+      return res.status(200).json({
+        message: "✅ Login succeeded",
+        token,
+      });
+    }
+
+    return res.status(401).json({ message: "❌ Invalid email or password" });
+  } catch (err) {
+    res.status(500).json({ message: "❌ Server error during login" });
   }
-
-  return res.status(401).json({ message: "Invalid email or password." });
 });
 
 export { router as loginRouter };
