@@ -1,33 +1,33 @@
-# 🔐 Microservice d'Authentification - Back Office
+# 🔐 Authentication Microservice - Back Office
 
-Ce microservice permet de gérer l’authentification d’un seul utilisateur (TOI) pour le back office.  
-Aucune base de données n’est utilisée : les informations sont stockées dans un fichier `.env`.
-
----
-
-## 🚀 Fonctionnement
-
-Le service expose **une seule route** d’authentification qui retourne un **token JWT** si les identifiants sont valides.
+This microservice handles authentication for a **single user (YOU)** within the back office.  
+No database is used — credentials are stored in a `.env` file.
 
 ---
 
-## 📦 Installation & Lancement
+## 🚀 How It Works
 
-### Cloner le projet
+The service exposes **a single authentication route** that returns a **JWT token** if the credentials are valid.
 
-    >   git clone <url-du-repo>
+---
 
-### Accéder au dossier du projet
+## 📦 Installation & Launch
 
-    >   cd nom-du-dossier
+### Clone the project
 
-### Installer les dépendances
+    >   git clone <repo-url>
+
+### Navigate to the project folder
+
+    >   cd project-folder-name
+
+### Install dependencies
 
     >   npm install
 
-### Ajouter les variables d’environnement dans un fichier .env
+### Add environment variables
 
-    >   Crée un fichier `.env` à la racine du projet avec les informations suivantes :
+Create a `.env` file at the root of the project with the following content :
 
 ```
 PORT=4000
@@ -36,17 +36,17 @@ USER_EMAIL=email
 USER_PASSWORD=test123
 ```
 
-### Lancer les tests
+### Run tests
 
     >   npm test
 
-### Démarrer le serveur
+### Start the server
 
     >   npm start
 
 ---
 
-## 📡 Route disponible
+## 📡 Available Route
 
 ### POST /login
 
@@ -62,22 +62,23 @@ USER_PASSWORD=test123
 
 ---
 
-## 👤 Utilisateur unique
+## 👤 Single User
 
-_Ce service ne gère qu’un utilisateur unique, dont les identifiants sont définis dans `.env`._
-
----
-
-## 🔒 Sécurité
-
-_Ce service ne gèreMême si le service est simple, le token JWT est signé avec une clé secrète (`JWT_SECRET`). Assurez-vous de ne jamais commit le fichier `.env` dans un repo public._
+_This service handles only one **user**, whose credentials are defined in the`.env` file._
 
 ---
 
-## 📬 Remarques
+## 🔒 Security
 
-Ce microservice est pensé pour être utilisé uniquement dans le contexte d'un **Back Office Local.**
-Il renvoie simplement un token si les identifiants sont bons. À utiliser avec modération 😄
+_Even though the service is simple, the JWT token is signed with a secret key (`JWT_SECRET`). Make sure to **never** commit your `.env` file to a public repository._
+
+---
+
+## 📬 Notes
+
+This microservice is designed to be used only in a **local Back Office context**.
+
+It simply returns a token if the credentials are correct. Use with care 😄
 
 ---
 
