@@ -62,6 +62,16 @@ USER_PASSWORD=test123
 
 ---
 
+## 🎴 Technologies Used
+
+- ⚛️[**Express**](https://expressjs.com/): A minimal and flexible Node.js web application framework for building APIs and web applications.
+- ⚛️[**bcryptjs**](https://www.npmjs.com/package/bcryptjs): A library to hash passwords securely.
+- ⚛️[**jsonwebtoken (JWT)**](https://www.npmjs.com/package/jsonwebtoken): Used to implement secure authentication using JSON Web Tokens.
+- ⚛️[**CORS**](https://www.npmjs.com/package/cors): Middleware for enabling Cross-Origin Resource Sharing.
+- ⚛️[**dotenv**](https://www.npmjs.com/package/dotenv): Loads environment variables from a `.env` file into process `.env`.
+
+---
+
 ## 👤 Single User
 
 _This service handles only one **user**, whose credentials are defined in the`.env` file._
