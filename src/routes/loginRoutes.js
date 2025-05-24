@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
     if (!email || !password) {
       return res
         .status(400)
-        .json({ message: "❌ Email and password are required" });
+        .json({ message: "❌ Email and Password are required" });
     }
 
     if (email === fakeUser.email && password === fakeUser.password) {
@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
       });
     }
 
-    return res.status(401).json({ message: "❌ Invalid email or password" });
+    return res.status(401).json({ message: "❌ Invalid Email or Password" });
   } catch (err) {
     res.status(500).json({ message: "❌ Server error during login" });
   }
