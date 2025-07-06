@@ -1,4 +1,4 @@
-# 🔐 Authentication Microservice - Back Office
+# 🔐 Authentication Microservice - BackEnd
 
 This microservice handles authentication for a **single user (YOU)** within the back office.  
 No database is used — credentials are stored in a `.env` file.
@@ -30,10 +30,10 @@ The service exposes **a single authentication route** that returns a **JWT token
 Create a `.env` file at the root of the project with the following content :
 
 ```
-PORT=4000
-JWT_SECRET=test123
-USER_EMAIL=email
-USER_PASSWORD=test123
+PORT=port
+JWT_SECRET=yourjwtsecret
+USER_EMAIL=youremail
+USER_PASSWORD=yourpassword
 ```
 
 ### Run tests
@@ -50,7 +50,7 @@ USER_PASSWORD=test123
 
 ### POST /login
 
-- **URL :** `http://localhost:4000/login`.
+- **URL :** `http://localhost:port/login`.
 - **BODY (JSON) :**
 
 ```
